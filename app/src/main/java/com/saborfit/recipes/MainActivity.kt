@@ -14,9 +14,11 @@ class MainActivity : AppCompatActivity() {
 
         webView.settings.javaScriptEnabled = true
         webView.settings.domStorageEnabled = true
+        webView.settings.allowFileAccess = true
+        webView.settings.allowContentAccess = true
         webView.webViewClient = WebViewClient()
         
-        // Buraya SaborFit web sitenin veya GitHub Pages adresini yazabilirsin
-        webView.loadUrl("https://dayimert61-jpg.github.io/Sabor-Fit/")
+        // Yerel assets klasöründeki index.html ve recipes.json dosyasını açar
+        webView.loadUrl("file:///android_asset/index.html")
     }
 }

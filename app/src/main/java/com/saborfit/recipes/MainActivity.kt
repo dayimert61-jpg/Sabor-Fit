@@ -12,13 +12,18 @@ class MainActivity : AppCompatActivity() {
         val webView = WebView(this)
         setContentView(webView)
 
-        webView.settings.javaScriptEnabled = true
-        webView.settings.domStorageEnabled = true
-        webView.settings.allowFileAccess = true
-        webView.settings.allowContentAccess = true
-        webView.webViewClient = WebViewClient()
+        webView.settings.apply {
+            javaScriptEnabled = true
+            domStorageEnabled = true
+            allowFileAccess = true
+            allowContentAccess = true
+            // Yerel dosyaların (file://) diğer yerel dosyaları (JSON) okumasına izin verir:
+            allowFileAccessFromFileURLs = true
+            allowUniversalAccessFromFileURLs = true
+        }
         
-        // Yerel assets klasöründeki index.html ve recipes.json dosyasını açar
+        webView.webViewClient = WebViewClient()
         webView.loadUrl("file:///android_asset/index.html")
     }
 }
+

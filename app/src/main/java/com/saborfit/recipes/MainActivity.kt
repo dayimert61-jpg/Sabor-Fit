@@ -17,6 +17,6 @@ class MainActivity : AppCompatActivity() {
         webView.webViewClient = WebViewClient()
         
         // Buraya SaborFit web sitenin veya GitHub Pages adresini yazabilirsin
-        webView.loadUrl("https://google.com")
+        webView.loadUrl("https://dayimert61-jpg.github.io/Sabor-Fit/")
     }
 }

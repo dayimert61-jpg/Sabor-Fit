@@ -1,4 +1,4 @@
-package com.saborfit.recipes
+package com.student.recipes
 
 import android.os.Bundle
 import android.webkit.WebView
@@ -17,7 +17,6 @@ class MainActivity : AppCompatActivity() {
             domStorageEnabled = true
             allowFileAccess = true
             allowContentAccess = true
-            // Yerel dosyaların (file://) diğer yerel dosyaları (JSON) okumasına izin verir:
             allowFileAccessFromFileURLs = true
             allowUniversalAccessFromFileURLs = true
         }
@@ -26,4 +25,3 @@ class MainActivity : AppCompatActivity() {
         webView.loadUrl("file:///android_asset/index.html")
     }
 }
-

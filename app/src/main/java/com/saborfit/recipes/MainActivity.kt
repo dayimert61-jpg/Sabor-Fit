@@ -1,15 +1,18 @@
 package com.student.recipes
 
 import android.os.Bundle
+import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var webView: WebView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         
-        val webView = WebView(this)
+        webView = WebView(this)
         setContentView(webView)
 
         webView.settings.apply {
@@ -17,17 +20,19 @@ class MainActivity : AppCompatActivity() {
             domStorageEnabled = true
             allowFileAccess = true
             allowContentAccess = true
+            allowFileAccessFromFileURLs = true
+            allowUniversalAccessFromFileURLs = true
+            cacheMode = WebSettings.LOAD_DEFAULT
         }
         
         webView.webViewClient = WebViewClient()
         
-        // Live web sync URL: Automatically updates app content whenever site changes
-        webView.loadUrl("https://dayimert61-jpg.github.io/Sabor-Fit/")
+        // Yerel assets klasöründeki güncel index.html dosyasını yükler
+        webView.loadUrl("file:///android_asset/index.html")
     }
 
     override fun onBackPressed() {
-        val webView = findViewById<WebView>(android.R.id.content)
-        if (webView != null && webView.canGoBack()) {
+        if (::webView.isInitialized && webView.canGoBack()) {
             webView.goBack()
         } else {
             super.onBackPressed()

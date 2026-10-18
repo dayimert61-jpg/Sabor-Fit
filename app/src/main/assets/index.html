@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaborFit App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 p-4 font-sans">
+    <header class="bg-red-700 text-white p-4 rounded-xl shadow-md mb-6 text-center">
+        <h1 class="text-2xl font-bold tracking-wide">SaborFit</h1>
+        <p class="text-xs text-amber-200 mt-1">Peruvian Cuisine & Nutrition Tracker</p>
+    </header>
+
+    <main id="app" class="space-y-4">
+        <div class="text-center text-gray-500 py-8">Yemekler yükleniyor...</div>
+    </main>
+
+    <script>
+        async function loadRecipes() {
+            try {
+                const response = await fetch('recipes.json');
+                const recipes = await response.json();
+                
+                const app = document.getElementById('app');
+                app.innerHTML = recipes.map(r => `
+                    <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <span class="text-[10px] bg-red-100 text-red-700 px-2 py-0.5 rounded-full font-bold uppercase">${r.category}</span>
+                                <h2 class="text-lg font-bold text-gray-900 mt-1">${r.name}</h2>
+                            </div>
+                            <span class="text-sm font-bold text-amber-600 bg-amber-50 px-2 py-1 rounded-lg">${r.calories} kcal</span>
+                        </div>
+                        <div class="grid grid-cols-3 gap-2 mt-3 text-center text-xs bg-gray-50 p-2 rounded-lg">
+                            <div><span class="text-gray-400 block">Prot</span><strong>${r.protein}g</strong></div>
+                            <div><span class="text-gray-400 block">Carb</span><strong>${r.carbs}g</strong></div>
+                            <div><span class="text-gray-400 block">Fat</span><strong>${r.fat}g</strong></div>
+                        </div>
+                        <div class="mt-3">
+                            <p class="text-xs text-gray-500"><strong>Malzemeler:</strong> ${r.ingredients.join(', ')}</p>
+                        </div>
+                    </div>
+                `).join('');
+            } catch (e) {
+                document.getElementById('app').innerHTML = '<p class="text-red-500 text-center">Veriler yüklenemedi.</p>';
+            }
+        }
+        window.onload = loadRecipes;
+    </script>
+</body>
+</html>

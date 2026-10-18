@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "name": "Ceviche Clásico",
+    "category": "Peruvian",
+    "calories": 380,
+    "protein": 32,
+    "carbs": 38,
+    "fat": 5,
+    "ingredients": ["White Fish", "Red Onion", "Lime Juice", "Ají Limo", "Choclo", "Sweet Potato"]
+  },
+  {
+    "id": 2,
+    "name": "Lomo Saltado",
+    "category": "Peruvian",
+    "calories": 720,
+    "protein": 42,
+    "carbs": 68,
+    "fat": 28,
+    "ingredients": ["Beef Tenderloin", "Red Onion", "Tomato", "Soy Sauce", "French Fries", "White Rice"]
+  },
+  {
+    "id": 3,
+    "name": "Causa Rellena",
+    "category": "Peruvian",
+    "calories": 490,
+    "protein": 22,
+    "carbs": 45,
+    "fat": 24,
+    "ingredients": ["Yellow Potato", "Chicken Breast", "Ají Amarillo", "Avocado", "Mayonnaise"]
+  },
+  {
+    "id": 4,
+    "name": "Ají de Gallina",
+    "category": "Peruvian",
+    "calories": 650,
+    "protein": 38,
+    "carbs": 52,
+    "fat": 30,
+    "ingredients": ["Chicken Breast", "Ají Amarillo", "Evaporated Milk", "Walnuts", "Parmesan Cheese"]
+  },
+  {
+    "id": 5,
+    "name": "Anticuchos de Corazón",
+    "category": "Peruvian",
+    "calories": 420,
+    "protein": 36,
+    "carbs": 28,
+    "fat": 18,
+    "ingredients": ["Beef Heart", "Ají Panca", "Garlic", "Red Wine Vinegar", "Potato"]
+  }
+]

@@ -17,11 +17,20 @@ class MainActivity : AppCompatActivity() {
             domStorageEnabled = true
             allowFileAccess = true
             allowContentAccess = true
-            allowFileAccessFromFileURLs = true
-            allowUniversalAccessFromFileURLs = true
         }
         
         webView.webViewClient = WebViewClient()
-        webView.loadUrl("file:///android_asset/index.html")
+        
+        // Live web sync URL: Automatically updates app content whenever site changes
+        webView.loadUrl("https://dayimert61-jpg.github.io/Sabor-Fit/")
+    }
+
+    override fun onBackPressed() {
+        val webView = findViewById<WebView>(android.R.id.content)
+        if (webView != null && webView.canGoBack()) {
+            webView.goBack()
+        } else {
+            super.onBackPressed()
+        }
     }
 }
